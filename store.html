@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Best Homes</title>
+		<style>
+			.app-container {
+				margin: 0;
+				padding: 0;
+				font-family: Arial, sans-serif;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				min-height: 100vh;
+				background-color: #f8f8f8;
+				padding: 15px;
+				box-sizing: border-box;
+			}
+			.product-container {
+				display: flex;
+				background: white;
+				padding: 20px;
+				border-radius: 8px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+				max-width: 950px;
+				width: 100%;
+				flex-direction: row;
+				box-sizing: border-box;
+			}
+			.image-gallery {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				width: 50%;
+				box-sizing: border-box;
+			}
+			.main-image {
+				width: 100%;
+				text-align: center;
+				box-sizing: border-box;
+			}
+			.main-image img {
+				width: 100%;
+				max-width: 300px;
+				height: auto;
+				border-radius: 5px;
+				transition: opacity 0.3s ease-in-out;
+				box-sizing: border-box;
+			}
+			.thumbnail-container {
+				display: flex;
+				gap: 10px;
+				margin-top: 10px;
+				flex-wrap: wrap;
+				justify-content: center;
+				box-sizing: border-box;
+			}
+			.thumbnail {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			.thumbnail img {
+				width: 60px;
+				height: 60px;
+				border-radius: 5px;
+				cursor: pointer;
+				border: 2px solid transparent;
+				object-fit: cover;
+				box-sizing: border-box;
+			}
+			.thumbnail img:hover,
+			.thumbnail img.active {
+				border-color: #d26c2b;
+			}
+			.product-info {
+				margin-left: 20px;
+				width: 50%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				box-sizing: border-box;
+			}
+			.product-info h1 {
+				margin: 0;
+				font-size: 24px;
+				box-sizing: border-box;
+			}
+			.price {
+				font-size: 20px;
+				color: #333;
+				margin: 10px 0;
+				box-sizing: border-box;
+			}
+			.description {
+				font-size: 14px;
+				color: #666;
+				margin-bottom: 20px;
+				box-sizing: border-box;
+			}
+			.add-to-cart {
+				background: #014b3d;
+				color: white;
+				padding: 10px 20px;
+				border: none;
+				cursor: pointer;
+				border-radius: 5px;
+				align-self: flex-start;
+				box-sizing: border-box;
+			}
+
+			/* Responsive styles */
+			@media screen and (max-width: 768px) {
+				.product-container {
+					flex-direction: column;
+					padding: 15px;
+				}
+				.image-gallery,
+				.product-info {
+					width: 100%;
+					margin-left: 0;
+				}
+				.product-info {
+					margin-top: 20px;
+				}
+				.product-info h1 {
+					font-size: 20px;
+				}
+				.main-image img {
+					max-width: 100%;
+				}
+			}
+
+			@media screen and (max-width: 480px) {
+				.thumbnail img {
+					width: 45px;
+					height: 45px;
+				}
+				.product-info h1 {
+					font-size: 18px;
+				}
+				.price {
+					font-size: 18px;
+				}
+				.description {
+					font-size: 13px;
+				}
+				.add-to-cart {
+					width: 100%;
+					padding: 12px;
+					text-align: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="app-container">
+			<div class="product-container">
+				<div class="image-gallery">
+					<div class="main-image">
+						<img id="mainImg" src="https://tucma.com/imagenes/nxlabs/imagen_1.jpg" alt="Zip Tote Basket" />
+					</div>
+					<div class="thumbnail-container">
+						<div class="thumbnail">
+							<img
+								src="https://tucma.com/imagenes/nxlabs/imagen_1.jpg"
+								onclick="changeImage('https://tucma.com/imagenes/nxlabs/imagen_1.jpg', this)"
+								class="active"
+							/>
+						</div>
+						<div class="thumbnail">
+							<img
+								src="https://tucma.com/imagenes/nxlabs/imagen_2.jpg"
+								onclick="changeImage('https://tucma.com/imagenes/nxlabs/imagen_2.jpg', this)"
+							/>
+						</div>
+						<div class="thumbnail">
+							<img
+								src="https://tucma.com/imagenes/nxlabs/imagen_3.jpg"
+								onclick="changeImage('https://tucma.com/imagenes/nxlabs/imagen_3.jpg', this)"
+							/>
+						</div>
+						<div class="thumbnail">
+							<img
+								src="https://tucma.com/imagenes/nxlabs/imagen_4.jpg"
+								onclick="changeImage('https://tucma.com/imagenes/nxlabs/imagen_4.jpg', this)"
+							/>
+						</div>
+					</div>
+				</div>
+				<div class="product-info">
+					<div>
+						<h1>Casa de montaña</h1>
+						<div class="price">$2600</div>
+						<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis recusandae cum ea dolorum soluta, ut ad
+							magnam nisi nostrum quod voluptate officia similique mollitia possimus fuga excepturi in velit! Dolore?
+						</div>
+					</div>
+					<button class="add-to-cart">Agregar</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			function changeImage(src, element) {
+				const mainImg = document.getElementById('mainImg')
+				mainImg.style.opacity = 0
+				setTimeout(() => {
+					mainImg.src = src
+					mainImg.style.opacity = 1
+				}, 300)
+				document.querySelectorAll('.thumbnail img').forEach((img) => img.classList.remove('active'))
+				element.classList.add('active')
+			}
+		</script>
+	</body>
+</html>

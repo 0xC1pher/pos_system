@@ -1,0 +1,32 @@
+@use "variables";
+
+.error-message {
+	position: absolute;
+	top: 50%;
+	left: 60px;
+	width: 80%;
+	background-color: rgba($color: #000000, $alpha: 0.8);
+	display: flex;
+	justify-content: space-around;
+	gap: 15px;
+	align-items: center;
+	padding: 15px 5px;
+	box-shadow: variables.$shadow;
+	border-radius: 15px;
+	color: white;
+	// transform: rotate(-30deg);
+	span {
+		font-weight: 700;
+		font-size: 1rem;
+		&.error-code {
+			font-size: 0.6rem;
+			font-weight: normal;
+			font-style: italic;
+		}
+		&.sorry {
+			font-size: 0.9rem;
+			font-weight: normal;
+			font-style: italic;
+		}
+	}
+}

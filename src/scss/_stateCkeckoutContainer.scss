@@ -1,0 +1,44 @@
+.state-checkout-container {
+	max-width: $container-max-width;
+	width: $container-width;
+	margin: auto;
+	margin-top: 20px;
+	.state-checkout-data {
+		height: 135px;
+		.state-checkout-doble {
+			margin: 10px 0;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			.state-checkout-left {
+				font-weight: bold;
+				font-size: 1.2rem;
+			}
+			.state-checkout-right {
+				font-size: 1.2rem;
+				display: flex;
+				justify-content: right;
+				position: relative;
+				input {
+					font-size: 1.3rem;
+					box-shadow: $shadow;
+					padding-left: 10px;
+					margin-left: 5px;
+					width: 100px;
+				}
+				.clean {
+					position: absolute;
+					top: 0;
+					right: 0;
+					z-index: 99;
+				}
+			}
+		}
+	}
+
+	.state-checkout-button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 20px 0;
+	}
+}

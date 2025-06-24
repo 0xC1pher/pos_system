@@ -1,0 +1,71 @@
+@use "variables";
+
+.cash-payment-container {
+	max-width: variables.$container-max-width;
+	width: variables.$container-width;
+	margin: auto;
+	margin-top: 20px;
+	.cash-payment-data {
+		height: 135px;
+		.cash-payment-doble {
+			margin: 10px 0;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			.cash-payment-left {
+				font-weight: bold;
+				font-size: 1.2rem;
+			}
+			.cash-payment-right {
+				font-size: 1.2rem;
+				display: flex;
+				justify-content: right;
+				position: relative;
+				.total-currency {
+					font-size: 1.1rem;
+					margin-right: 5px;
+					align-items: baseline;
+					margin-top: 3px;
+				}
+				.total-amount {
+					font-size: 1.2rem;
+					font-weight: 600;
+				}
+				input {
+					font-size: 1.3rem;
+					box-shadow: variables.$shadow;
+					padding-left: 10px;
+					margin-left: 5px;
+					width: 100px;
+				}
+				.clean {
+					position: absolute;
+					top: 0;
+					right: 0;
+					z-index: 99;
+				}
+			}
+		}
+	}
+
+	.cash-payment-button {
+		display: flex;
+		// grid-template-columns: 5fr 2fr;
+		margin: 20px 0;
+		align-items: center;
+		justify-content: center;
+		button {
+			display: flex;
+			gap: 30px;
+		}
+	}
+
+	.cash-payment-button-success {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		button {
+			display: flex;
+			gap: 30px;
+		}
+	}
+}

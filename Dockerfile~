@@ -1,0 +1,30 @@
+FROM node:21.7.1 AS build
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . ./
+
+RUN npm run build
+
+
+FROM nginx:1.27.0-alpine-slim
+
+COPY --from=build /app/dist/client /usr/share/nginx/html
+COPY --from=build /app/.routify /usr/share/nginx/html/.routify
+
+# Copiar los certificados SSL al servidor Nginx
+COPY priv/cert/nxlabs.io.key /etc/ssl/private/
+COPY priv/cert/star_nxlabs_io.pem /etc/ssl/certs/
+COPY priv/cert/DigiCertCA.pem /etc/ssl/certs/
+
+#Copiar la configuracion de Nginx
+COPY nginx/default.conf /etc/nginx/conf.d/
+
+EXPOSE 80
+EXPOSE 443
+
+CMD ["nginx", "-g", "daemon off;"]

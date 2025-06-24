@@ -1,0 +1,58 @@
+.voucher-container {
+	width: 80%;
+	margin: auto;
+	.seccion-voucher {
+		align-items: left;
+		height: 50px;
+		width: 100%;
+		// font-family: 'Calistoga', serif;
+		font-size: 1.8rem;
+		font-weight: 400;
+		font-style: normal;
+		margin-bottom: 30px;
+	}
+	.result-voucher {
+		margin-top: 30px;
+		text-align: center;
+		font-size: 1.1rem;
+		font-style: italic;
+		margin-bottom: 30px;
+	}
+	.qty-voucher {
+		display: grid;
+		grid-template-columns: 5fr 7fr;
+		width: 90%;
+		margin: auto;
+		.voucher-text {
+			display: flex;
+			align-items: center;
+			font-size: 1.1rem;
+			font-weight: 400;
+			font-style: normal;
+		}
+		.voucher-curr {
+			display: flex;
+			align-items: center;
+			justify-content: right;
+			font-size: 1.3rem;
+			font-weight: 700;
+			padding-top: 2px;
+			text-align: right;
+			padding-right: 5px;
+		}
+		.voucher-qty {
+			display: flex;
+			align-items: center;
+			justify-content: right;
+			font-size: 1.2rem;
+			font-weight: bold;
+			font-family: 'Courier New', Courier, monospace;
+		}
+	}
+	.validando {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 35px;
+	}
+}

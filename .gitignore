@@ -1,0 +1,7 @@
+.routify
+.history
+node_modules
+dist
+
+# Ignore environment variables
+*.env

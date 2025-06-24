@@ -1,0 +1,406 @@
+@use "variables";
+
+.product-list-container {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	width: 90%;
+	margin: auto;
+	position: relative;
+
+	.product-items-container {
+		height: 350px;
+		width: 100%;
+		max-width: variables.$container-list-max-width;
+		margin: auto;
+		overflow-y: overlay;
+		&::-webkit-scrollbar {
+			width: 5px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background-color: orange; /* Color de la barra de desplazamiento */
+			border-radius: 10px; /* Bordes redondeados opcionales */
+		}
+		.product-item {
+			display: grid;
+			grid-template-columns: 3fr 9fr;
+			grid-gap: 10px;
+			padding: 10px;
+			border-radius: 10px;
+			background-color: white;
+			box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.15);
+			transition: all 0.3s ease-in-out;
+			margin-bottom: 10px;
+			// height: 90px;
+			margin-right: 10px;
+			&.product-erased {
+				display: none;
+			}
+			// .product-trash-container {}
+			.product-trash {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				background-color: rgba($color: #000000, $alpha: 0.3);
+				.product-buttons-container {
+					background-color: variables.$attenpo-orange-ligth;
+					border-radius: variables.$border-radius;
+					margin: auto;
+					margin-top: 50px;
+					padding: 15px 25px;
+					width: 80%;
+					.product-trash-message {
+						.trash-message {
+							font-size: 1.2rem;
+							font-weight: 600;
+							text-align: center;
+						}
+						.trash-prod-name {
+							font-size: 1.1rem;
+							font-weight: normal;
+							text-align: center;
+						}
+					}
+					.product-buttons {
+						// Estilos para los botones de acción del producto
+						display: flex;
+						justify-content: space-between;
+						gap: 30px;
+						margin: auto;
+						margin-top: 30px;
+						.button-action,
+						.button-return {
+							// Estilos comunes para los botones de acción y retorno
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							width: 100%;
+							border-radius: 5px;
+							padding: 10px 0;
+							border: none;
+							cursor: pointer;
+						}
+
+						.button-return {
+							// Estilo específico para el botón de retorno
+							background-color: variables.$attenpo-green;
+							color: #fff;
+							font-weight: 600;
+						}
+						.button-action {
+							// Estilo específico para el botón de acción
+							background-color: variables.$attenpo-red;
+						}
+					}
+				}
+			}
+
+			.product-image {
+				display: flex;
+				justify-content: center;
+				align-items: start;
+				img {
+					width: 100%;
+					max-height: 120px;
+					object-fit: scale-down;
+					padding: 0 20px;
+					margin: 0 20px;
+				}
+			}
+
+			.product-info {
+				display: grid;
+				grid-template-rows: 2fr 1fr 1fr;
+				// gap: 5px;
+				.product-name {
+					text-align: left;
+					// height: 50px;
+					font-size: 0.8em;
+				}
+				.product-quantity {
+					display: flex;
+					gap: 10px;
+					$quantity-color: variables.$attenpo-green-light;
+					button.quantity-change {
+						height: 19px;
+						font-size: 0.7rem;
+						font-weight: 200;
+						color: $quantity-color;
+						border: $quantity-color solid 1px;
+						border-radius: 5px;
+					}
+					.quantity-value {
+						color: $quantity-color;
+						font-weight: 600;
+					}
+				}
+				.product-bottom {
+					display: flex;
+					justify-content: space-between;
+					color: variables.$attenpo-orange;
+					.product-price {
+						display: flex;
+						justify-content: left;
+						align-items: center;
+						.price-currency {
+							font-size: 1.1rem;
+							margin-right: 5px;
+						}
+						.price-amount {
+							font-size: 1.2rem;
+							font-weight: 700;
+						}
+					}
+					.product-remove {
+						display: flex;
+						justify-content: right;
+						align-items: center;
+						button {
+							font-size: 0.8rem;
+							border: none;
+							cursor: pointer;
+							background: none;
+							color: variables.$attenpo-orange;
+							margin-top: -10px;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: 600px) {
+		.product-items-container {
+			.product-item {
+				// height: 80px;
+				.product-image {
+					img {
+						object-fit: cover;
+					}
+				}
+				.product-info {
+					.product-data {
+						height: 60px;
+						.product-name {
+							.product-title {
+								font-size: 0.9em;
+							}
+							.product-comment {
+								font-size: 0.8em;
+							}
+						}
+						.product-price {
+							font-size: 1.4em;
+							font-weight: 700;
+						}
+					}
+					.product-tools {
+						height: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: 500px) {
+		.product-items-container {
+			.product-item {
+				height: 80px;
+				.product-info {
+					.product-data {
+						height: 50px;
+						.product-name {
+							.product-title {
+								font-size: 0.8em;
+							}
+						}
+						.product-price {
+							font-size: 1.3em;
+							font-weight: 600;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.product-list-view-container {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: rgba($color: #000000, $alpha: 0.3);
+		.product-list-view {
+			width: 90%;
+			height: 144px;
+			margin: auto;
+			margin-top: 25px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			box-shadow: variables.$shadow;
+			background-color: #fff;
+			.view-marquee {
+				position: relative;
+				display: grid;
+				grid-template-columns: 11fr 1fr;
+				background-color: variables.$attenpo-green;
+				border-radius: 5px 5px 0 0;
+				color: white;
+				height: 25px;
+				.view-product-name {
+					padding-left: 5px;
+					padding-top: 2px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+				.view-product-close {
+					position: absolute;
+					top: 0;
+					right: 0;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					button {
+						font-size: 0.8rem;
+					}
+				}
+			}
+			.view-product-details {
+				display: grid;
+				grid-template-columns: 3fr 5fr 4fr;
+				height: 120px;
+				position: relative;
+				.view-product-image {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					img {
+						height: 100px;
+						width: auto;
+						object-fit: cover;
+					}
+				}
+				.view-product-price {
+					display: flex;
+					justify-content: space-around;
+					align-items: center;
+					font-size: 1.8rem;
+					.price-currency {
+						font-size: 1.3rem;
+					}
+					.price-amount {
+						font-size: 2rem;
+					}
+				}
+				.view-product-qty-confirm {
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					.button-qty-confirm {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						border-radius: 0px 0 5px 0;
+						background-color: variables.$attenpo-green;
+						color: white;
+						padding: 5px 10px;
+						&:disabled {
+							background-color: variables.$attenpo-green-dis;
+						}
+					}
+				}
+			}
+			.view-product-qty-message {
+				display: flex;
+				justify-content: space-around;
+				padding-top: 50px;
+				.view-message {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					font-size: 1.3rem;
+					font-weight: 600;
+				}
+				.icono {
+					margin-top: -20px;
+				}
+			}
+		}
+	}
+
+	.product-bottom-container {
+		width: 100%;
+		margin: auto;
+		max-width: variables.$container-list-max-width;
+
+		.product-list-total {
+			display: grid;
+			grid-template-columns: 2fr 8fr 2fr;
+			gap: 10px;
+			margin-top: 20px;
+			color: variables.$attenpo-orange;
+			font-size: 2em;
+			.total-text {
+				font-weight: normal;
+			}
+			.total-value {
+				text-align: left;
+				.price-currency {
+					font-size: 1.3rem;
+					margin-right: 5px;
+				}
+				.price-amount {
+					font-weight: 600;
+					font-size: 1.8rem;
+					font-weight: 700;
+				}
+			}
+			.button-add {
+				display: flex;
+				justify-content: right;
+				align-items: center;
+				button.add-product {
+					border-radius: 5px;
+					width: 45px;
+					height: 35px;
+					background-color: variables.$attenpo-orange !important;
+					color: white;
+					border: none;
+					cursor: pointer;
+					background: none;
+					font-size: 0.8rem;
+				}
+			}
+		}
+		.product-confirm {
+			margin: auto;
+			display: flex;
+			flex-direction: row;
+			button {
+				width: 100%;
+			}
+		}
+	}
+	@media (max-width: 600px) {
+		.product-bottom-container {
+			padding-bottom: 10px;
+			margin-bottom: 10px;
+			color: red;
+			.product-list-total {
+				font-size: 1.8em;
+			}
+		}
+	}
+
+	@media (max-width: 400px) {
+		.product-bottom-container {
+			.product-list-total {
+				font-size: 1.6em;
+			}
+		}
+	}
+}

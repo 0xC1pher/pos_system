@@ -1,0 +1,18 @@
+@use "variables";
+
+.marquee {
+	width: 100%;
+	background-color: variables.$claro-logo;
+	justify-content: center;
+	height: 10dvh;
+	padding: 10px 0;
+	border-radius: 15px 15px 0 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	img.logo {
+		display: block;
+		margin: auto;
+		height: 60px;
+	}
+}

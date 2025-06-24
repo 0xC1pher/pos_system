@@ -1,0 +1,57 @@
+.not-found-container {
+	margin: -20px 0 -45px 0;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	.not-found-message {
+		font-size: 0.9rem;
+		color: red;
+		text-align: center;
+	}
+	button.not-found {
+		width: 120px;
+		height: 30px;
+	}
+}
+
+.alert-message-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 10px;
+	margin-top: 20px;
+	align-items: center;
+	font-size: 0.9rem;
+	color: black;
+
+	/* 
+	button.message {
+		font-size: 1.2rem;
+		font-weight: 700;
+		height: 35px;
+		color: red;
+		border: none;
+		cursor: pointer;
+		.secondary-text {
+			font-size: 1rem;
+			color: black;
+			font-weight: normal;
+			font-style: italic;
+			text-align: center;
+			padding: 0 39px;
+			justify-content: center;
+			margin-top: 5px;
+		}
+		.close-text {
+			font-size: 0.8rem;
+			color: black;
+			font-style: italic;
+			font-weight: 300;
+			margin-top: 15px;
+		}
+	}
+	 */
+}

@@ -1,0 +1,89 @@
+@use "variables";
+
+.admin-container {
+	display: grid;
+	grid-template-rows: 4fr 8fr;
+	width: 100%;
+	margin: 0;
+	.admin-logo {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			width: 90%;
+		}
+	}
+	.admin-title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: auto;
+		text-align: center;
+		font-size: 2.1rem;
+		font-weight: 700;
+		color: variables.$attenpo-green;
+	}
+	.nav-buttons {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: auto;
+		text-align: center;
+		font-size: 1.1rem;
+		.button {
+			width: 100%;
+			padding: 10px 15px;
+			text-align: center;
+			border: none;
+			box-shadow: variables.$shadow;
+			cursor: pointer;
+			border-radius: 5px;
+			&.button-green {
+				background-color: variables.$attenpo-green;
+				color: white;
+			}
+			&.button-black {
+				background-color: #000;
+				color: white;
+			}
+			&.button-blue {
+				background-color: variables.$attenpo-blue;
+				color: white;
+			}
+			&.button-red {
+				background-color: variables.$attenpo-red;
+				color: white;
+			}
+			&.button-orange {
+				background-color: variables.$attenpo-orange;
+				color: white;
+			}
+			&.button-white {
+				background-color: #fff;
+				border: #000 solid 1px;
+				color: black;
+				&:hover {
+					background-color: #0056b320;
+				}
+			}
+			&.with-spinner {
+				display: grid;
+				grid-template-columns: 10fr 2fr;
+				justify-content: center;
+				align-items: center;
+				gap: 10px;
+			}
+		}
+	}
+}
+
+@media (max-width: 400px) {
+	.admin-container {
+		.nav-buttons {
+			button {
+				font-size: 0.8rem;
+			}
+		}
+	}
+}

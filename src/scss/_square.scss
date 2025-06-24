@@ -1,0 +1,47 @@
+@use "variables";
+
+// demo home page
+.square {
+	width: 90%;
+	margin: auto;
+	padding: 20px;
+	background-color: variables.$azul-logo;
+	border-radius: 25px;
+	margin-top: 30px;
+	.square-inner {
+		.square-top {
+			color: white;
+			text-align: center;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			p {
+				font-size: 2rem;
+			}
+		}
+		.square-logo-atenpo {
+			img {
+				width: 100%;
+				margin-top: 30px;
+			}
+			// height: 200px;
+		}
+		.square-logo-nxlabs {
+			img {
+				width: 100%;
+				margin-top: 30px;
+			}
+			// height: 130px;
+		}
+		.square-txt {
+			background-color: white;
+			font-size: 2rem;
+			color: black;
+			font-size: 4rem;
+			text-align: center;
+			font-style: italic;
+			border-radius: 10px;
+		}
+	}
+}

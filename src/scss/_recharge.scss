@@ -1,0 +1,37 @@
+@use "variables";
+
+.recharge-container {
+	margin: auto;
+	display: grid;
+	grid-template-rows: 1fr 4fr 2fr;
+	height: 90%;
+	.section-recharge {
+		@include variables.main-title;
+	}
+	.instructions {
+		@include variables.instructions;
+	}
+	.selector {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: left;
+		width: 80%;
+		margin: auto;
+		margin-top: 30px;
+		gap: 10px;
+		label {
+			font-size: 1.1rem;
+			height: 20px;
+		}
+		input {
+			font-size: 1.3rem;
+			text-align: left;
+			border: variables.$attenpo-orange 2px solid;
+			border-radius: 5px;
+			height: 25px;
+			padding: 5px 10px;
+			font-size: 0.9rem;
+		}
+	}
+}

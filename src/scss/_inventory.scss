@@ -1,0 +1,163 @@
+@use "variables";
+
+.inventory-container {
+	// Estilos para el contenedor principal del producto
+	display: flex;
+	flex-direction: column;
+	margin: 0 30px;
+	margin-top: 0px;
+	position: relative;
+	.inventory-title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 50px;
+		width: 100%;
+		// font-family: 'Calistoga', serif;
+		font-size: 1.8rem;
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	.inventory-description {
+		display: grid;
+		grid-template-columns: 3fr 9fr;
+		margin-bottom: 20px;
+		.inventory-imagen {
+			// Estilos para la imagen del producto
+			width: 100%;
+
+			height: 150px;
+			justify-content: center;
+			margin-bottom: 15px;
+			position: relative;
+			img {
+				max-width: 100%;
+				height: 150px;
+				object-fit: cover;
+			}
+		}
+
+		.inventory-data {
+			margin-top: 20px;
+			.inventory-name {
+				margin-bottom: 20px;
+				// margin: auto;
+				font-size: 1.3rem;
+				color: #222;
+				text-align: left;
+			}
+			.inventory-cost {
+				display: grid;
+				grid-template-columns: 3fr 5fr;
+				gap: 10px;
+				span {
+					font-weight: 700;
+				}
+				div {
+					display: flex;
+					justify-content: left;
+					text-align: right;
+				}
+			}
+		}
+	}
+
+	.quantity-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		.quantity-data {
+			padding-top: 20px;
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+			span {
+				font-weight: 700;
+			}
+			input {
+				width: 40px;
+				padding: 5px;
+				border-radius: 5px;
+				text-align: center;
+				font-size: 1rem;
+				margin-left: 10px;
+			}
+		}
+		.quantity-actions {
+			.quantity-loader {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.quantity-speak {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				align-items: center;
+				justify-content: center;
+				button.speak {
+					cursor: pointer;
+					border: none;
+				}
+			}
+		}
+	}
+
+	.inventory-buttons {
+		// Estilos para los botones de acción del producto
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+		width: 100%;
+		margin: auto;
+		margin-top: 30px;
+		.button-action,
+		.button-return {
+			// Estilos comunes para los botones de acción y retorno
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			border-radius: 5px;
+			padding: 20px 0;
+			cursor: pointer;
+		}
+
+		.button-action {
+			// Estilo específico para el botón de acción
+			background-color: variables.$attenpo-green;
+			&.disabled {
+				background-color: variables.$attenpo-green-dis;
+			}
+		}
+		.button-return {
+			// Estilo específico para el botón de retorno
+			background-color: variables.$attenpo-red;
+		}
+	}
+	.inventory-stock-error {
+		position: absolute;
+		top: 50%;
+		left: 60px;
+		width: 80%;
+		background-color: rgba($color: #000000, $alpha: 0.8);
+		display: flex;
+		justify-content: space-around;
+		gap: 15px;
+		align-items: center;
+		padding: 15px 5px;
+		box-shadow: variables.$shadow;
+		border-radius: 15px;
+		color: white;
+		// transform: rotate(-30deg);
+		span {
+			font-weight: 700;
+			font-size: 1rem;
+			&.sorry {
+				font-size: 0.8rem;
+				font-weight: normal;
+				font-style: italic;
+			}
+		}
+	}
+}

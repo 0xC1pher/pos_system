@@ -1,0 +1,26 @@
+.qr-id {
+	background-color: rgba($color: #000000, $alpha: 0.1);
+	padding-top: 10vh;
+	.qr-customer {
+		margin: 15px 0;
+		font-size: 2em;
+		text-align: center;
+	}
+	.qr {
+		$ancho: 350px;
+		width: $ancho; /* Ancho del contenedor */
+		height: $ancho; /* Alto del contenedor */
+		margin: auto;
+		background-color: white; /* Fondo blanco */
+		img {
+			width: 100%;
+		}
+	}
+	.qr-recomendations {
+		margin-top: 30px;
+		font-style: italic;
+		color: darkred;
+		font-size: 1.3em;
+		text-align: center;
+	}
+}

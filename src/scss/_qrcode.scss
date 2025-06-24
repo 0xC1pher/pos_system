@@ -1,0 +1,17 @@
+@use "variables";
+
+.qr-code-container {
+	width: 100%;
+	.qr-code-image {
+		width: 90%;
+		height: auto;
+		max-width: 500px;
+		margin: auto;
+		img {
+			border: 5px solid variables.$attenpo-orange;
+			border-radius: 15px;
+			width: 100%;
+			box-shadow: variables.$shadow;
+		}
+	}
+}

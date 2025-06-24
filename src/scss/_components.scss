@@ -1,0 +1,43 @@
+@use "variables";
+
+$size: 15px;
+.key-switch-wrapper {
+	position: relative;
+	width: 30px;
+	height: $size;
+	// background-color: $attenpo-red;
+	border-radius: $size;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.key-switch-wrapper.checked {
+	background-color: variables.$attenpo-green;
+}
+
+.key-switch-wrapper:not(.checked) {
+	background-color: variables.$attenpo-orange;
+}
+
+.key-switch-wrapper.active {
+	background-color: variables.$attenpo-blue;
+}
+
+.key-switch-wrapper:not(.active) {
+	background-color: variables.$attenpo-red;
+}
+
+.key-switch {
+	position: absolute;
+	width: $size;
+	height: $size;
+	background-color: #fff;
+	border-radius: 50%;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease;
+}
+
+.key-switch.checked,
+.key-switch.active {
+	transform: translateX(calc($size + 5px));
+}

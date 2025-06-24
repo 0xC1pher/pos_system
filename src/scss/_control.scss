@@ -1,0 +1,15 @@
+@use "variables";
+
+.control-container {
+	width: 80%;
+	margin: auto;
+	display: grid;
+	grid-template-rows: 1fr 4fr 2fr;
+	height: 90%;
+	.seccion-control {
+		@include variables.main-title;
+	}
+	.instruct-control {
+		@include variables.instructions;
+	}
+}

@@ -1,0 +1,179 @@
+@use 'variables';
+@use 'square';
+@use 'home';
+@use 'marquee';
+@use 'qrID';
+@use 'scannerViewer';
+@use 'product';
+@use 'inventory';
+@use 'taxonomy';
+@use 'notFound';
+@use 'statusBar';
+@use 'quantity';
+@use 'productList';
+@use 'productListTxt';
+@use 'recharge';
+@use 'checkout';
+@use 'checkoutPhoneNumber';
+@use 'cashPayment';
+@use 'cash';
+@use 'control';
+@use 'voucher';
+@use 'card';
+@use 'qrcode';
+@use 'payResult';
+@use 'confirm';
+@use 'thanks';
+@use 'admin';
+@use 'terminal';
+@use 'cashiers';
+@use 'components';
+@use 'errorMessage';
+
+// cashRegister
+// @import '_stateCkeckoutContainer';
+
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
+body {
+	font-family: 'Rubik', sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	font-variation-settings: 'slnt' 0;
+	font-size: 16px;
+}
+
+.container {
+	margin-top: 50px;
+	width: 100%;
+	margin: auto;
+	max-width: variables.$container-max-width;
+	overflow: hidden;
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: orange; /* Color de la barra de desplazamiento */
+		border-radius: 10px; /* Bordes redondeados opcionales */
+	}
+}
+@media (max-width: 400px) {
+}
+
+.return-marquee {
+	display: grid;
+	grid-template-columns: 1fr 8fr;
+	height: 50px;
+	.return-arrow {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.section-name {
+	@include variables.main-title;
+}
+
+.button {
+	// Estilos comunes para los botones de acción y retorno
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+	margin: 10px auto;
+	padding: 10px 15px;
+	text-align: center;
+	// border: 1px solid #666;
+	border: none;
+	box-shadow: variables.$shadow;
+	cursor: pointer;
+	border-radius: 5px;
+	box-shadow: variables.$shadow;
+	&.button-green {
+		background-color: variables.$attenpo-green;
+		color: white;
+		&.disabled {
+			background-color: variables.$attenpo-green-dis;
+		}
+	}
+	&.button-black {
+		background-color: #000;
+		color: white;
+		&:hover {
+			background-color: gray;
+		}
+	}
+	&.button-blue {
+		background-color: variables.$attenpo-blue;
+		color: white;
+	}
+	&.button-red {
+		background-color: variables.$attenpo-red;
+		color: white;
+	}
+	&.button-orange {
+		background-color: variables.$attenpo-orange;
+		color: white;
+	}
+	&.button-gray {
+		background-color: variables.$attenpo-text-gray;
+		color: black;
+	}
+	&.button-white {
+		background-color: #fff;
+		border: #000 solid 1px;
+		color: black;
+		&:hover {
+			background-color: #0056b320;
+		}
+	}
+	&.with-spinner {
+		display: grid;
+		grid-template-columns: 10fr 2fr;
+		justify-content: center;
+		align-items: center;
+		gap: 10px;
+	}
+}
+.button-hidden {
+	cursor: pointer;
+	background: none;
+	border: none;
+}
+
+.space-down {
+	margin-bottom: 30px;
+}
+
+.center {
+	margin: auto;
+}
+
+.waiting {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+// @media screen and (orientation: portrait) {
+// 	.container {
+// 		// max-width: 100%;
+// 	}
+// }
+
+.button-return,
+.button-action {
+	border: none !important;
+	box-shadow: variables.$shadow;
+}
+
+.spinner-confirm-waiting {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
+}

@@ -1,0 +1,61 @@
+@use "variables";
+
+.checkout-phone-number {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+	margin: auto;
+	.phone-checkout {
+		@include variables.main-title;
+	}
+	.phone-instruction {
+		@include variables.instructions;
+	}
+	.enter-phone {
+		padding-left: 30px;
+		margin: 25px 0;
+		@include variables.input-data;
+	}
+	.titles {
+		font-size: 0.9em;
+		font-weight: 600;
+	}
+	.phone-message {
+		color: variables.$attenpo-red;
+		font-size: 1em;
+		text-align: center;
+		font-style: italic;
+		height: 20px;
+	}
+	.phone-skip {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 150px;
+		width: 100%;
+		button.skip {
+			margin-left: auto;
+			display: flex;
+			gap: 30px;
+			font-size: 0.9rem;
+			font-weight: 600;
+			height: 35px;
+			color: variables.$gris-skip;
+			cursor: pointer;
+			border: variables.$gris-skip 2px solid;
+			border-radius: 15px;
+			padding-top: 6px;
+		}
+	}
+}
+
+@media (max-width: 420px) {
+	.checkout-container {
+		.section-checkout {
+			font-size: 1.4rem;
+		}
+	}
+}

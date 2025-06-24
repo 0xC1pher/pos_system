@@ -1,0 +1,135 @@
+.scanner-container {
+	padding-top: 10vh;
+	.scanner-viewer {
+		$ancho: 350px;
+		$alto: 350px;
+		width: 350px; /* Ancho del visor */
+		height: 263px; /* Alto del visor */
+		margin: auto;
+		position: relative; /* Posición relativa para posicionar las esquinas */
+		background-color: white; /* Fondo blanco */
+		.corner {
+			width: 30px; /* Ancho de cada "L" */
+			height: 30px; /* Alto de cada "L" */
+			position: absolute; /* Posición absoluta para ubicarlas en las esquinas */
+			overflow: hidden; /* Oculta cualquier parte del div que salga de los límites definidos */
+			&:before,
+			&:after {
+				content: '';
+				position: absolute;
+				background-color: black; /* Color de fondo de las esquinas */
+			}
+			&.top-left {
+				top: 0;
+				left: 0;
+			}
+			&:before,
+			&:after {
+				width: 100%;
+				height: 5px; /* Grosor de la línea */
+			}
+		}
+
+		.top-left:before {
+			top: 0;
+			left: 0;
+		}
+		.top-left:after {
+			width: 5px;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+		.top-right {
+			top: 0;
+			right: 0;
+			&:before,
+			&:after {
+				width: 100%;
+				height: 5px; /* Grosor de la línea */
+			}
+		}
+		.top-right:before {
+			top: 0;
+			right: 0;
+		}
+		.top-right:after {
+			width: 5px;
+			height: 100%;
+			top: 0;
+			right: 0;
+		}
+		.bottom-left {
+			bottom: 0;
+			left: 0;
+			&:before,
+			&:after {
+				width: 100%;
+				height: 5px; /* Grosor de la línea */
+			}
+		}
+		.bottom-left:before {
+			bottom: 0;
+			left: 0;
+		}
+		.bottom-left:after {
+			width: 5px;
+			height: 100%;
+			bottom: 0;
+			left: 0;
+		}
+		.bottom-right {
+			bottom: 0;
+			right: 0;
+			&:before,
+			&:after {
+				width: 100%;
+				height: 5px; /* Grosor de la línea */
+			}
+		}
+		.bottom-right:before {
+			bottom: 0;
+			right: 0;
+		}
+		.bottom-right:after {
+			width: 5px;
+			height: 100%;
+			bottom: 0;
+			right: 0;
+		}
+		img {
+			width: 100%;
+		}
+	}
+	.scanner-recomendations {
+		margin-top: 30px;
+		font-style: italic;
+		font-size: 1.3em;
+		text-align: center;
+	}
+	.scanner-state {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 200px;
+		margin: auto;
+		margin-top: 30px;
+		height: 30px;
+		text-align: center;
+		background-color: green;
+		box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+		color: white;
+		font-weight: 600;
+	}
+	.scanner-action {
+		width: 300px;
+		margin: auto;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 30px;
+		font-style: italic;
+		color: #666;
+		text-align: center;
+		font-size: 1.5em;
+	}
+}
